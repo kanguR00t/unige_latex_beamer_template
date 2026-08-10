@@ -11,3 +11,7 @@ lualatex poster
 ```
 
 Alternatively, feel free to import everything to OverLeaf and continue editing there!
+
+## The Results
+
+![Poster Result](figures/poster.pdf)
