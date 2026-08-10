@@ -1,0 +1,178 @@
+\documentclass[final]{beamer}
+
+% ----------------- Packages -----------------
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[orientation=portrait,size=a0,scale=1.15]{beamerposter}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{anyfontsize}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{enumitem}
+\usepackage{caption}
+
+\usetheme{gemini}
+%\setbeamerfont{normal text}{family=\rmfamily}
+%\setbeamerfont{block body}{family=\rmfamily}
+\usecolortheme{nott}
+\pgfplotsset{compat=1.18}
+
+
+% ----------------- Lengths -----------------
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.02\paperwidth}
+\setlength{\colwidth}{0.47\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\the\sepwidth}\end{column}}
+
+\newcommand{\affiliation}[2]{%
+  \noindent\textbf{#1:}%
+  \hangindent=2em  % adjust this to match the label width
+  \hangafter=0  %
+  \hspace{0.5em}#2\par
+}
+\newcommand{\thickpinkarrow}{\tikz{\draw[->,line width=6pt,Genevapink] (0,0) -- (1,0);}}
+
+
+% ----------------- Header -----------------
+\title{Your awesome poster title!}
+
+\author{
+  \textbf{\underline{Your Name}}\inst{1},
+  Collaborator 1\inst{1},
+  Collaborator 2\inst{1},
+  External Collaborator\inst{2}
+}
+
+\institute[shortinst]{
+  \inst{1} Université de Genève\hspace{1em}
+  \inst{2} External Institute
+}
+
+% Email to be used with \insertemaillink later
+\email{your.name@unige.ch}
+
+
+% ----------------- Footer -----------------
+\footercontent{%
+  % 1ex subtracted from each minipage to match the 1.5ex boundaries defined in footercontent
+  \begin{minipage}{0.32\textwidth-1ex\relax}
+    \flushleft
+    Today's Date (if you like)
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\textwidth-1ex\relax}
+    \centering
+    Cool Conference
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.32\textwidth-1ex\relax}
+    \flushright
+    \insertemaillink
+  \end{minipage}
+}
+
+% % ----------------- Logos -----------------
+\logoright{
+  % Place for logos - UniGe for sure, maybe ATLAS, potentially some external funding source, too
+  \begin{tikzpicture}
+    % force a consistent bounding box so the box height/width is stable
+    \path (0,0) rectangle (0.3\paperwidth,4cm);
+
+    \node[anchor=north west] at (0.0,3.0)
+      {\includegraphics[height=4cm]{logos/ATLAS.pdf}};
+
+    \node[anchor=north west] at (12.0,3.0)
+      {\includegraphics[height=4cm]{logos/unige_logo_white.pdf}};
+  \end{tikzpicture}
+  % \begin{minipage}{0.45\linewidth}
+  %   \centering
+  %   \includegraphics[height=5cm]{logos/UNIGE_logo_white.png}
+  % \end{minipage}
+  % \hspace{1cm}
+  % \begin{minipage}{0.3\linewidth}
+  %   \centering
+  %   \hspace{3cm}\includegraphics[height=5cm]{logos/ATLAS.png}
+  % \end{minipage}
+}
+
+% ----------------- Document -----------------
+\begin{document}
+
+% \begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+% Left column
+\begin{column}{\colwidth}
+\begin{block}{Motivation}
+  Why did you do all of this work?
+\end{block}
+
+\begin{block}{Overview}
+  All the things you could be telling with this poster\ldots
+\end{block}
+
+\begin{block}{Stylistic Options}
+  Plenty to choose from honestly\ldots \newline
+  Like a newline
+
+  Or a paragraph break
+
+  \begin{itemize}
+    \item
+      Or
+    \item
+      A
+    \item
+      List
+  \end{itemize}
+\end{block}
+
+\end{column}
+
+\separatorcolumn
+
+% Right column
+\begin{column}{\colwidth}
+\begin{block}{Stylistic Options II}
+  You can also use figures or tables!
+
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{example-image}
+    \captionsetup{labelformat=empty}
+    \caption{A caption for the figure.}
+  \end{figure}
+\end{block}
+
+\begin{alertblock}{An important section}
+  This section is especially important! \newline
+  Just look at its pretty color
+
+  \begin{center}
+    \begin{minipage}{0.9\textwidth}
+      \begin{exampleblock}{Another Example}
+        You can even use blocks in blocks, amazing!
+      \end{exampleblock}
+    \end{minipage}
+  \end{center}
+\end{alertblock}
+
+\begin{block}{Outlook \& Conclusions}
+  Time to wrap it up\ldots \newline
+  Maybe add a nice QR code to your paper too here!
+\end{block}
+
+\end{column}
+
+\separatorcolumn
+
+\end{columns}
+% \end{frame}
+
+\end{document}
