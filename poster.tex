@@ -51,7 +51,7 @@
 }
 \newcommand{\instlabel}[2]{%
   \@ifpackageloaded{hyperref}%
-    {\hypertarget{institute#1}{\inst{#1}\,#2}}%
+    {\hypertarget{institute#1}{\inst{#1}\kern0.1em\relax#2}}%
     {\inst{#1}}%
 }
 \makeatother
