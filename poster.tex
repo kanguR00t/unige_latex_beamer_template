@@ -49,9 +49,9 @@
     {\hyperlink{institute#1}{\inst{#1}}}%
     {\inst{#1}}%
 }
-\newcommand{\instlabel}[1]{%
+\newcommand{\instlabel}[2]{%
   \@ifpackageloaded{hyperref}%
-    {\hypertarget{institute#1}{\inst{#1}}}%
+    {\hypertarget{institute#1}{\inst{#1}\,#2}}%
     {\inst{#1}}%
 }
 \makeatother
@@ -70,8 +70,8 @@
 }
 
 \institute[shortinst]{
-  \instlabel{1} Université de Genève\hspace{1em}
-  \instlabel{2} External Institute
+  \instlabel{1}{Université de Genève}\quad
+  \instlabel{2}{External Institute}
 }
 
 % Email to be used with \insertemaillink later
