@@ -20,6 +20,11 @@
 \usecolortheme{nott}
 \pgfplotsset{compat=1.18}
 
+% ----------------- Color -------------------
+% Switch between the UniGe pink and the UniGe science green
+\colorlet{GenevaMain}{GenevaScience}
+% \colorlet{GenevaMain}{GenevaPink}
+
 
 % ----------------- Lengths -----------------
 \newlength{\sepwidth}
@@ -35,7 +40,7 @@
   \hangafter=0  %
   \hspace{0.5em}#2\par
 }
-\newcommand{\thickpinkarrow}{\tikz{\draw[->,line width=6pt,Genevapink] (0,0) -- (1,0);}}
+\newcommand{\thickpinkarrow}{\tikz{\draw[->,line width=6pt,GenevaMain] (0,0) -- (1,0);}}
 
 
 % ----------------- Header -----------------
@@ -79,25 +84,17 @@
 % % ----------------- Logos -----------------
 \logoright{
   % Place for logos - UniGe for sure, maybe ATLAS, potentially some external funding source, too
+  \raggedleft
   \begin{tikzpicture}
-    % force a consistent bounding box so the box height/width is stable
-    \path (0,0) rectangle (0.3\paperwidth,4cm);
+    % force a consistent bounding box so the box height/width is stable (coordinates are 0,0 as upper right corner of slide in cm, then negative in both x and y)
+    \path (-0.3\paperwidth,-4cm) rectangle (0,0);
 
-    \node[anchor=north west] at (0.0,3.0)
-      {\includegraphics[height=4cm]{logos/ATLAS_LGBT.pdf}};
+    \node[anchor=north east] at (-14.0,-1.0)
+      {\includegraphics[height=4.6cm]{logos/ATLAS_LGBTQ_white.pdf}};
 
-    \node[anchor=north west] at (12.0,3.0)
-      {\includegraphics[height=4cm]{logos/unige_logo_white.pdf}};
+    \node[anchor=north east] at (0.0,-1.0)
+      {\includegraphics[height=5.0cm]{logos/unige_dpnc_fr_white.pdf}};
   \end{tikzpicture}
-  % \begin{minipage}{0.45\linewidth}
-  %   \centering
-  %   \includegraphics[height=5cm]{logos/UNIGE_logo_white.png}
-  % \end{minipage}
-  % \hspace{1cm}
-  % \begin{minipage}{0.3\linewidth}
-  %   \centering
-  %   \hspace{3cm}\includegraphics[height=5cm]{logos/ATLAS.png}
-  % \end{minipage}
 }
 
 % ----------------- Document -----------------

@@ -11,8 +11,9 @@
 % Extra colors
 \definecolor{lightgray}{RGB}{240, 240, 240}
 \definecolor{lightorange}{RGB}{255, 245, 242}
-\definecolor{Genevapink}{RGB}{207, 0, 99}
+\definecolor{GenevaPink}{RGB}{207, 0, 99}
 \definecolor{GenevaScience}{RGB}{0, 126, 100}
+\colorlet{GenevaMain}{GenevaScience}
 
 % ====================
 % Theme
@@ -23,20 +24,20 @@
 \setbeamercolor{palette secondary}{fg=black,bg=white}
 \setbeamercolor{palette tertiary}{bg=black,fg=white}
 \setbeamercolor{palette quaternary}{fg=black,bg=white}
-\setbeamercolor{structure}{fg=Genevapink}
+\setbeamercolor{structure}{fg=GenevaMain}
 
 % Headline
-\setbeamercolor{headline}{fg=white,bg=Genevapink}
+\setbeamercolor{headline}{fg=white,bg=GenevaMain}
 
 % Block
-\setbeamercolor{block title}{fg=Genevapink,bg=white}
+\setbeamercolor{block title}{fg=GenevaMain,bg=white}
 \setbeamercolor{block separator}{bg=black}
 \setbeamercolor{block body}{fg=black,bg=white}
 
 % Alert Block
-\setbeamercolor{block alerted title}{fg=Genevapink,bg=lightorange}
+\setbeamercolor{block alerted title}{fg=GenevaMain,bg=GenevaMain!5}
 \setbeamercolor{block alerted separator}{bg=black}
-\setbeamercolor{block alerted body}{fg=black,bg=lightorange}
+\setbeamercolor{block alerted body}{fg=black,bg=GenevaMain!5}
 
 % Example Block
 \setbeamercolor{block example title}{fg=nottblue,bg=lightgray}
@@ -47,7 +48,7 @@
 \setbeamercolor{heading}{fg=black}
 
 % Itemize
-\setbeamercolor{item}{fg=Genevapink}
+\setbeamercolor{item}{fg=GenevaMain}
 
 % Bibliography
 \setbeamercolor{bibliography item}{fg=black}
