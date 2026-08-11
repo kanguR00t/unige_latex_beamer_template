@@ -13,12 +13,14 @@
 \usepackage{fontawesome5}
 \usepackage{enumitem}
 \usepackage{caption}
+\usepackage{xurl}
 
 \usetheme{gemini}
 %\setbeamerfont{normal text}{family=\rmfamily}
 %\setbeamerfont{block body}{family=\rmfamily}
 \usecolortheme{nott}
 \pgfplotsset{compat=1.18}
+\graphicspath{{./}{figures/}{logos/}}
 
 % ----------------- Color -------------------
 % Switch between the UniGe pink and the UniGe science green
@@ -40,27 +42,50 @@
   \hangafter=0  %
   \hspace{0.5em}#2\par
 }
+
+\makeatletter
+\newcommand{\instref}[1]{%
+  \@ifpackageloaded{hyperref}%
+    {\hyperlink{institute#1}{\inst{#1}}}%
+    {\inst{#1}}%
+}
+\newcommand{\instlabel}[1]{%
+  \@ifpackageloaded{hyperref}%
+    {\hypertarget{institute#1}{\inst{#1}}}%
+    {\inst{#1}}%
+}
+\makeatother
+
 \newcommand{\thickpinkarrow}{\tikz{\draw[->,line width=6pt,GenevaMain] (0,0) -- (1,0);}}
 
 
 % ----------------- Header -----------------
 \title{Your awesome poster title!}
 
-\author{
-  \textbf{\underline{Your Name}}\inst{1},
-  Collaborator 1\inst{1},
-  Collaborator 2\inst{1},
-  External Collaborator\inst{2}
+\author[Your Name]{
+  \textbf{\underline{Your Name}}\instref{1},
+  Collaborator 1\instref{1},
+  Collaborator 2\instref{1},
+  External Collaborator\instref{2}
 }
 
 \institute[shortinst]{
-  \inst{1} Université de Genève\hspace{1em}
-  \inst{2} External Institute
+  \instlabel{1} Université de Genève\hspace{1em}
+  \instlabel{2} External Institute
 }
 
 % Email to be used with \insertemaillink later
 \email{your.name@unige.ch}
 
+% Hyperref Metadata (overwrite if you want to change things here)
+\makeatletter
+\hypersetup{
+  pdftitle={\inserttitle},
+  pdfauthor={\beamer@shortauthor},
+  pdfsubject={Poster},
+  pdfkeywords={Poster},
+}
+\makeatother
 
 % ----------------- Footer -----------------
 \footercontent{%
@@ -84,16 +109,17 @@
 % % ----------------- Logos -----------------
 \logoright{
   % Place for logos - UniGe for sure, maybe ATLAS, potentially some external funding source, too
+  % Check out the logos folder for additional options for e.g. UniGe logos
   \raggedleft
   \begin{tikzpicture}
     % force a consistent bounding box so the box height/width is stable (coordinates are 0,0 as upper right corner of slide in cm, then negative in both x and y)
     \path (-0.3\paperwidth,-4cm) rectangle (0,0);
 
     \node[anchor=north east] at (-14.0,-1.0)
-      {\includegraphics[height=4.6cm]{logos/ATLAS_LGBTQ_white.pdf}};
+      {\includegraphics[height=4.6cm]{ATLAS_LGBTQ_white.pdf}};
 
     \node[anchor=north east] at (0.0,-1.0)
-      {\includegraphics[height=5.0cm]{logos/unige_dpnc_fr_white.pdf}};
+      {\includegraphics[height=5.0cm]{unige_dpnc_fr_white.pdf}};
   \end{tikzpicture}
 }
 
@@ -112,6 +138,12 @@
 
 \begin{block}{Overview}
   All the things you could be telling with this poster\ldots
+
+  For reference, the regulations for the corporate identity of the Université de Genève can be found here:\newline
+  \url{https://unige.ch/communication/publier/charte}
+
+  Meanwhile, additional logos can be downloaded directly here as well:\newline
+  \url{https://charte.unige.ch/logo}
 \end{block}
 
 \begin{block}{Stylistic Options}
@@ -161,8 +193,20 @@
 \end{alertblock}
 
 \begin{block}{Outlook \& Conclusions}
-  Time to wrap it up\ldots \newline
-  Maybe add a nice QR code to your paper too here!
+  \begin{minipage}[t]{0.53\textwidth}
+    Time to wrap it up\ldots \newline
+    Maybe add a nice QR code to your paper here, similar to the code to the poster template repo on the right!
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+      \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\textwidth]{QR_repo.pdf}
+        \vspace*{-1.5ex}
+        \captionsetup{labelformat=empty}
+        \caption{\centering\scriptsize\url{https://github.com/kanguR00t/unige\_latex\_beamer\_template}}
+      \end{figure}
+  \end{minipage}
 \end{block}
 
 \end{column}
