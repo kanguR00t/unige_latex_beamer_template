@@ -6,5 +6,7 @@
 *.toc
 *.pdf
 *.eps
-!figures/**.pdf
-!logos/**.pdf
+!figures/**/*.pdf
+!figures/**/*.eps
+!logos/**/*.pdf
+!logos/**/*.eps
